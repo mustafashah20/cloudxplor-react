@@ -3,7 +3,7 @@ import './Home.css';
 import { HiX, HiMenu } from 'react-icons/hi';
 //import { HiOutlineArrowNarrowUp, HiOutlineArrowNarrowDown, HiX, HiMenu } from 'react-icons/hi';
 import { Container, Row, Col, Card, ListGroup, Toast } from 'react-bootstrap';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart } from 'recharts';
 import { PieChart, Pie, Sector } from "recharts";
 
 
@@ -66,48 +66,48 @@ class Home extends Component {
     activeIndex: 0,
 
     //Memory Data
-    free : 0, 
-    inact : 0,
-    active : 0,
+    free: 0,
+    inact: 0,
+    active: 0,
 
     //CPU Data
-    usr : 0,
-    nice : 0,
-    sys : 0,
-    ioWait : 0,
-    irq : 0,
-    soft : 0,
-    steal : 0,
-    guest : 0,
-    gnice : 0,
-    idle : 0,
+    usr: 0,
+    nice: 0,
+    sys: 0,
+    ioWait: 0,
+    irq: 0,
+    soft: 0,
+    steal: 0,
+    guest: 0,
+    gnice: 0,
+    idle: 0,
 
     //DiskData
-    rd_total : 0,
-    rd_merged : 0,
-    wr_total : 0,
-    wr_merged : 0,
+    rd_total: 0,
+    rd_merged: 0,
+    wr_total: 0,
+    wr_merged: 0,
 
     //IoData
-    ioData : [],
+    ioData: [],
     device_id: 0,
-    tps : 0,
-    readSpeed : 0,
-    writeSpeed : 0,
-    read : 0,
-    write : 0,
-    tps_difference : 0,
-    readSpeed_difference : 0,
-    writeSpeed_difference : 0,
-    read_difference : 0,
-    write_difference : 0,
+    tps: 0,
+    readSpeed: 0,
+    writeSpeed: 0,
+    read: 0,
+    write: 0,
+    tps_difference: 0,
+    readSpeed_difference: 0,
+    writeSpeed_difference: 0,
+    read_difference: 0,
+    write_difference: 0,
 
     //Used for difference calculation
-    oldIoData : [],
+    oldIoData: [],
 
     //Boolean for notification state
-    cpuShow : false,
-    memShow : false
+    cpuShow: false,
+    memShow: false
   };
 
   componentDidMount() {
@@ -116,7 +116,7 @@ class Home extends Component {
 
     this.updateDiskData()
     setInterval(this.updateDiskData, 15000);
-    
+
     this.updateCpuData()
     setInterval(this.updateCpuData, 15000);
 
@@ -127,19 +127,26 @@ class Home extends Component {
   updateMemData = () => {
     try {
       fetch('http://localhost:8080/api/v1/memData').then(
-      (memDataresponse) => memDataresponse.json().then(
-        (memDataBody) => {
-          //console.log(memDataBody)
-          if(memDataBody.length > 0){
+        (memDataresponse) => memDataresponse.json().then(
+          (memDataBody) => {
+            //console.log(memDataBody)
+            if (memDataBody.length > 0) {
+              localStorage.setItem('mem-data', JSON.stringify(memDataBody));
+            }
+            else {
+              const data = localStorage.getItem('mem-data');
+              if (data) {
+                memDataBody = JSON.parse(data);
+              }
+            }
             this.setState({
-              free : parseInt(memDataBody[memDataBody.length-1].free),
-              inact : parseInt(memDataBody[memDataBody.length-1].inact),
-              active: parseInt(memDataBody[memDataBody.length-1].active),
+              free: parseInt(memDataBody[memDataBody.length - 1].free),
+              inact: parseInt(memDataBody[memDataBody.length - 1].inact),
+              active: parseInt(memDataBody[memDataBody.length - 1].active),
             })
           }
-        }
+        )
       )
-    )
     } catch (error) {
       console.log(error)
     }
@@ -149,43 +156,57 @@ class Home extends Component {
 
     try {
       fetch('http://localhost:8080/api/v1/diskData').then(
-      (diskDataResponse) => diskDataResponse.json().then(
-        (diskDataBody) => {
-          //console.log(diskDataBody)
-          if( diskDataBody.length > 0){
+        (diskDataResponse) => diskDataResponse.json().then(
+          (diskDataBody) => {
+            //console.log(diskDataBody)
+            if (diskDataBody.length > 0) {
+              localStorage.setItem('disk-data', JSON.stringify(diskDataBody));
+            }
+            else {
+              const data = localStorage.getItem('disk-data');
+              if (data) {
+                diskDataBody = JSON.parse(data);
+              }
+            }
             this.setState({
-              rd_total : parseInt(diskDataBody[diskDataBody.length-1].total),
-              rd_merged : parseInt(diskDataBody[diskDataBody.length-1].merged),
-              wr_total: parseInt(diskDataBody[diskDataBody.length-1].total2),
-              wr_merged: parseInt(diskDataBody[diskDataBody.length-1].merged2),
+              rd_total: parseInt(diskDataBody[diskDataBody.length - 1].total),
+              rd_merged: parseInt(diskDataBody[diskDataBody.length - 1].merged),
+              wr_total: parseInt(diskDataBody[diskDataBody.length - 1].total2),
+              wr_merged: parseInt(diskDataBody[diskDataBody.length - 1].merged2),
             })
           }
-        }
+        )
       )
-    )
     } catch (error) {
       console.log(error)
     }
   }
 
   updateCpuData = () => {
-    
+
     try {
       fetch('http://localhost:8080/api/v1/cpuData').then(
-      (cpuDataResponse) => cpuDataResponse.json().then(
-        (cpuDataBody) => {
-          //console.log(cpuDataBody)
-          if(cpuDataBody.length > 0){
+        (cpuDataResponse) => cpuDataResponse.json().then(
+          (cpuDataBody) => {
+            //console.log(cpuDataBody)
+            if (cpuDataBody.length > 0) {
+              localStorage.setItem('cpu-data', JSON.stringify(cpuDataBody));
+            }
+            else {
+              const data = localStorage.getItem('cpu-data');
+              if (data) {
+                cpuDataBody = JSON.parse(data);
+              }
+            }
             this.setState({
-              usr : parseInt(cpuDataBody[0].usr),
+              usr: parseInt(cpuDataBody[0].usr),
               ioWait: parseInt(cpuDataBody[0].ioWait),
               idle: parseInt(cpuDataBody[0].idle),
-              sys : parseInt(cpuDataBody[0].sys),
+              sys: parseInt(cpuDataBody[0].sys),
             })
           }
-        }
+        )
       )
-    )
     } catch (error) {
       console.log(error)
     }
@@ -198,19 +219,26 @@ class Home extends Component {
         (ioDataResponse) => ioDataResponse.json().then(
           (ioDataBody) => {
             console.log(ioDataBody)
-            if(ioDataBody.length > 0){
-              let temp = parseInt(ioDataBody[this.state.device_id].write);
-              temp = temp / 1000000;
-              temp = temp.toFixed(2);
-          
-              this.setState({
-                ioData : ioDataBody,
-                tps : parseInt(ioDataBody[this.state.device_id].tps),
-                readSpeed : parseInt(ioDataBody[this.state.device_id].readSpeed),
-                writeSpeed : parseInt(ioDataBody[this.state.device_id].writeSpeed),
-                write : temp,
-              })
+            if (ioDataBody.length > 0) {
+              localStorage.setItem('io-data', JSON.stringify(ioDataBody));
             }
+            else {
+              const data = localStorage.getItem('io-data');
+              if (data) {
+                ioDataBody = JSON.parse(data);
+              }
+            }
+            let temp = parseInt(ioDataBody[this.state.device_id].write);
+            temp = temp / 1000000;
+            temp = temp.toFixed(2);
+
+            this.setState({
+              ioData: ioDataBody,
+              tps: parseInt(ioDataBody[this.state.device_id].tps),
+              readSpeed: parseInt(ioDataBody[this.state.device_id].readSpeed),
+              writeSpeed: parseInt(ioDataBody[this.state.device_id].writeSpeed),
+              write: temp,
+            });
           }
         )
       )
@@ -220,7 +248,7 @@ class Home extends Component {
   }
 
 
-  ioDeviceClicked (index) {
+  ioDeviceClicked(index) {
     const {
       ioData,
     } = this.state;
@@ -228,29 +256,29 @@ class Home extends Component {
     let temp = parseInt(ioData[index].write_col);
     temp = temp / 1000000;
     temp = temp.toFixed(2);
-    
-    this.setState( {
-        tps: parseInt(ioData[index].tps_col),
-        readSpeed: parseInt(ioData[index].readSpeed_col),
-        writeSpeed: parseInt(ioData[index].writeSpeed_col),
-        read: parseInt(ioData[index].read_col),
-        write: temp,
-        device_id : index,
+
+    this.setState({
+      tps: parseInt(ioData[index].tps_col),
+      readSpeed: parseInt(ioData[index].readSpeed_col),
+      writeSpeed: parseInt(ioData[index].writeSpeed_col),
+      read: parseInt(ioData[index].read_col),
+      write: temp,
+      device_id: index,
     });
   }
 
-  setCpuShow(){
+  setCpuShow() {
     this.setState({
-      cpuShow : !this.state.cpuShow
+      cpuShow: !this.state.cpuShow
     })
   }
 
-  setMemShow(){
+  setMemShow() {
     this.setState({
-      memShow : !this.state.memShow
+      memShow: !this.state.memShow
     })
   }
-  
+
   render() {
 
     const rechartMemoryData = [
@@ -288,35 +316,35 @@ class Home extends Component {
     ];
 
     const reachartPieData = [
-      { 
-        name: '%idle', 
+      {
+        name: '%idle',
         value: this.state.idle
       },
-      { 
-        name: '%ioWait', 
+      {
+        name: '%ioWait',
         value: this.state.ioWait
       },
-      { 
-        name: '%usr', 
+      {
+        name: '%usr',
         value: this.state.usr
       },
-      { 
-        name: '%sys', 
+      {
+        name: '%sys',
         value: this.state.sys
       },
     ];
 
     return (
-        <div className='main-content'>
+      <div className='main-content'>
         <Container fluid>
-  
+
           <Row className="heading">
             <Col>
               <h2 className="main-heading">Hello, Mustafa Shah</h2>
               <h5 className="sub-heading">This is your dashboard</h5>
             </Col>
           </Row>
-  
+
           <Row>
             <Col md={7}>
               <div className="first-box">
@@ -340,13 +368,13 @@ class Home extends Component {
                           <Toast.Body className="my-toast-body">You active memory is very high.You active memory is very high.</Toast.Body>
                         </Toast>
                       </Col>
-                      <Col md={1} className="stat-icon-col"> 
-                      {
-                        this.state.memShow === false && <HiMenu className="menu-icon" onClick={() => this.setMemShow(true)}/>
-                      }
-                      {
-                        this.state.memShow === true && <HiX className="menu-icon" onClick={() => this.setMemShow(true)}/>
-                      }
+                      <Col md={1} className="stat-icon-col">
+                        {
+                          this.state.memShow === false && <HiMenu className="menu-icon" onClick={() => this.setMemShow(true)} />
+                        }
+                        {
+                          this.state.memShow === true && <HiX className="menu-icon" onClick={() => this.setMemShow(true)} />
+                        }
                       </Col>
                     </Row>
                     <ResponsiveContainer width="100%" height="100%">
@@ -360,7 +388,7 @@ class Home extends Component {
                           left: 20,
                         }}
                       >
-                        <CartesianGrid strokeDasharray="3 3"/>
+                        <CartesianGrid strokeDasharray="3 3" />
                         <XAxis type="number" />
                         <YAxis dataKey="name" type="category" scale="band" />
                         <Tooltip />
@@ -370,9 +398,9 @@ class Home extends Component {
                   </Card.Body>
                 </Card>
               </div>
-              
-            </Col>  
-  
+
+            </Col>
+
             <Col md={5}>
               <div className="first-box">
                 <Card>
@@ -392,16 +420,16 @@ class Home extends Component {
                             <strong className="mr-auto">Notification</strong>
                             <small>10 mins ago</small>
                           </Toast.Header>
-                          <Toast.Body  className="my-toast-body">You CPU is being under used.You CPU is being under used.You CPU is being under used.</Toast.Body>
+                          <Toast.Body className="my-toast-body">You CPU is being under used.You CPU is being under used.You CPU is being under used.</Toast.Body>
                         </Toast>
                       </Col>
-                      <Col md={1} className="stat-icon-col"> 
-                      {
-                        this.state.cpuShow === false && <HiMenu className="menu-icon" onClick={() => this.setCpuShow(true)}/>
-                      }
-                      {
-                        this.state.cpuShow === true && <HiX className="menu-icon" onClick={() => this.setCpuShow(true)}/>
-                      }
+                      <Col md={1} className="stat-icon-col">
+                        {
+                          this.state.cpuShow === false && <HiMenu className="menu-icon" onClick={() => this.setCpuShow(true)} />
+                        }
+                        {
+                          this.state.cpuShow === true && <HiX className="menu-icon" onClick={() => this.setCpuShow(true)} />
+                        }
                       </Col>
                     </Row>
                     <ResponsiveContainer width="100%" height="100%">
@@ -423,7 +451,7 @@ class Home extends Component {
               </div>
             </Col>
           </Row>
-  
+
           <Row>
             <Col md={3}>
               <div className="second-box second-box-first-div">
@@ -446,11 +474,11 @@ class Home extends Component {
                       </Card.Text> */}
                     </div>
                   </Card.Body>
-                </Card>                
+                </Card>
               </div>
             </Col>
-  
-            <Col md={3}> 
+
+            <Col md={3}>
               <div className="second-box second-box-second-div">
                 <Card>
                   <Card.Body className="card-body">
@@ -474,10 +502,10 @@ class Home extends Component {
                       </Card.Text> */}
                     </div>
                   </Card.Body>
-                </Card>     
+                </Card>
               </div>
             </Col>
-                  
+
             <Col md={3}>
               <div className="second-box second-box-third-div">
                 <Card>
@@ -502,10 +530,10 @@ class Home extends Component {
                       </Card.Text> */}
                     </div>
                   </Card.Body>
-                </Card>    
+                </Card>
               </div>
             </Col>
-            
+
             <Col md={3}>
               <div className="second-box second-box-fourth-div">
                 <Card>
@@ -534,7 +562,7 @@ class Home extends Component {
               </div>
             </Col>
           </Row>
-  
+
           <Row>
             <Col md={8}>
               <div className="third-box">
@@ -543,17 +571,17 @@ class Home extends Component {
                     <Card.Title className="main-heading">IO Devices</Card.Title>
                     <div className="list-div">
                       <ListGroup>
-                          { this.state.ioData.map( (data,index) => 
-                              <ListGroup.Item action onClick={() => this.ioDeviceClicked(index)}>{data.device}</ListGroup.Item>
-                          )}
+                        {this.state.ioData.map((data, index) =>
+                          <ListGroup.Item action onClick={() => this.ioDeviceClicked(index)}>{data.device}</ListGroup.Item>
+                        )}
                       </ListGroup>
                     </div>
                   </Card.Body>
                 </Card>
               </div>
-              
-            </Col>  
-  
+
+            </Col>
+
             <Col md={4}>
               <div className="third-box">
                 <Card>
