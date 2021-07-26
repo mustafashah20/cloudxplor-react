@@ -42,7 +42,6 @@ class StatementCompare extends Component {
         const statementAnalysisresponse = await fetch('http://localhost:8080/api/v1/StatementAnalysis');
         const statementAnalysisbody = await statementAnalysisresponse.json();
         this.setState({ statementAnalysisGroups: statementAnalysisbody});
-        console.log(this.state.statementAnalysisGroups)
 
         if(statementAnalysisbody.length >0){
             this.setState({

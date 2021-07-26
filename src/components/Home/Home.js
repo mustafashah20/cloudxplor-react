@@ -90,7 +90,7 @@ class Home extends Component {
 
     //IoData
     ioData : [],
-    device_id: 8,
+    device_id: 0,
     tps : 0,
     readSpeed : 0,
     writeSpeed : 0,
@@ -194,55 +194,21 @@ class Home extends Component {
   fetchIoData = () => {
 
     try {
-      fetch('http://localhost:8080/api/v1/ioData/').then(
-        (ioDataResponse) => ioDataResponse.json().then(
-          (ioDataBody) => {
-            console.log()
-            if(ioDataBody.length > 0){
-              let temp = parseInt(ioDataBody[this.state.device_id].write_col);
-              temp = temp / 1000000;
-              temp = temp.toFixed(2);
-          
-              this.setState({
-                ioData : ioDataBody,
-                tps : parseInt(ioDataBody[this.state.device_id].tps_col),
-                readSpeed : parseInt(ioDataBody[this.state.device_id].readSpeed_col),
-                writeSpeed : parseInt(ioDataBody[this.state.device_id].writeSpeed_col),
-                write : temp,
-              })
-              // this.setState({
-              //   oldIoData : ioDataBody
-              // })
-            }
-          }
-        )
-      )
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  updateIoData = () => {
-    try {
-      fetch('http://localhost:8080/api/v1/ioData/').then(
+      fetch('http://localhost:8080/api/v1/ioData').then(
         (ioDataResponse) => ioDataResponse.json().then(
           (ioDataBody) => {
             console.log(ioDataBody)
             if(ioDataBody.length > 0){
-              let temp = parseInt(ioDataBody[this.state.device_id].write_col);
+              let temp = parseInt(ioDataBody[this.state.device_id].write);
               temp = temp / 1000000;
               temp = temp.toFixed(2);
           
               this.setState({
                 ioData : ioDataBody,
-                tps : parseInt(ioDataBody[this.state.device_id].tps_col),
-                readSpeed : parseInt(ioDataBody[this.state.device_id].readSpeed_col),
-                writeSpeed : parseInt(ioDataBody[this.state.device_id].writeSpeed_col),
+                tps : parseInt(ioDataBody[this.state.device_id].tps),
+                readSpeed : parseInt(ioDataBody[this.state.device_id].readSpeed),
+                writeSpeed : parseInt(ioDataBody[this.state.device_id].writeSpeed),
                 write : temp,
-              })
-              this.calculateDifference(this.state.oldIoData,ioDataBody)
-              this.setState({
-                oldIoData : ioDataBody
               })
             }
           }
@@ -251,18 +217,6 @@ class Home extends Component {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  calculateDifference(oldData,newData){
-    let temp = parseInt(newData[this.state.device_id].write_col) - parseInt(oldData[this.state.device_id].write_col);
-    temp = temp / 1000000;
-    temp = temp.toFixed(2);
-    this.setState({
-      tps_difference : parseInt(newData[this.state.device_id].tps_col) - parseInt(oldData[this.state.device_id].tps_col),
-      readSpeed_difference : parseInt(newData[this.state.device_id].readSpeed_col) - parseInt(oldData[this.state.device_id].readSpeed_col),
-      writeSpeed_difference :  parseInt(newData[this.state.device_id].writeSpeed_col) -  parseInt(oldData[this.state.device_id].writeSpeed_col),
-      write_difference : temp,
-    })
   }
 
 
@@ -590,7 +544,7 @@ class Home extends Component {
                     <div className="list-div">
                       <ListGroup>
                           { this.state.ioData.map( (data,index) => 
-                              <ListGroup.Item action onClick={() => this.ioDeviceClicked(index)}>{data.device_col}</ListGroup.Item>
+                              <ListGroup.Item action onClick={() => this.ioDeviceClicked(index)}>{data.device}</ListGroup.Item>
                           )}
                       </ListGroup>
                     </div>

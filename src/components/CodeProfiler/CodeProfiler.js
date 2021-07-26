@@ -152,7 +152,6 @@ class CodeProfiler extends Component {
     const stackDumpResponse = await fetch('http://localhost:8080/api/v1/StackDump');
     const stackDumpBody = await stackDumpResponse.json();
 
-    console.log(stackDumpBody)
     this.checkStackLength(stackDumpBody)
 
     this.setState({

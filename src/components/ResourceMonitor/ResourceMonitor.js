@@ -53,7 +53,6 @@ class ResourceMonitor extends Component {
     fetch('http://localhost:8080/api/v1/StatementAnalysis').then(
       (statementAnalysisresponse) => statementAnalysisresponse.json().then(
         (statementAnalysisBody) => {
-          console.log(statementAnalysisBody)
           if(statementAnalysisBody.length > 0){
             this.setState({ 
               statementAnalysisData: statementAnalysisBody,
@@ -122,7 +121,6 @@ class ResourceMonitor extends Component {
     fetch('http://localhost:8080/api/v1/HostSummary').then(
       (hostSummaryResponse) => hostSummaryResponse.json().then(
         (hostSummaryBody) => {
-          console.log(hostSummaryBody)
           if(hostSummaryBody.length > 0){
             this.setState({ 
               hostSummaryGroups: hostSummaryBody 
