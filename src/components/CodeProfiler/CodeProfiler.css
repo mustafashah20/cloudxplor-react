@@ -1,0 +1,288 @@
+.main-content {
+    height: 100%;
+    background-color: #EDF2F9;
+    padding: 1rem;
+  }
+  
+  .main-heading{
+    font-weight: 600;
+    color: var(--color-main-heading);
+  }
+  
+  .sub-heading{
+    font-weight: 400;
+    color: var(--color-sub-heading);
+  }
+  
+  .test{
+    height: 400px;
+    width: 50%;
+    background-color: black;
+  }
+  
+  .code-profiler-first-box{
+    background-color: white;
+    height: 400px;
+    border-radius: 5px;
+  }
+  
+  .code-profiler-second-box{
+    background-color: white;
+    height: 460px;
+    border-radius: 5px;
+  }
+  
+  .code-profiler-third-box{
+    background-color: white;
+    height: 460px;
+    border-radius: 5px;
+  }
+  
+  .row {
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    height: 100%;
+  }
+  
+  .heading{
+    margin-bottom: 0;
+  }
+  
+  .my-bar {
+    fill: #8356fd;
+    /* fill: #413ea0; */
+  }
+  
+  .second-box-first-div {
+    background-image: linear-gradient(#00efca,#02ccfc 60%);
+  }
+  
+  .second-box-second-div {
+    background-image: linear-gradient(#ffcd4d,#f799d1 60%);
+  }
+  
+  .second-box-third-div {
+    background-image: linear-gradient(#41D2FF,#0B55EC 80%);
+  }
+  
+  .second-box-fourth-div {
+    background-image: linear-gradient(#cfc5eb,#8356fd 80%);
+  }
+  
+  
+  .second-box .card-title {
+    color: white;
+  }
+  
+  .card{
+    background-color: transparent;
+  }
+  
+  .second-box-inside-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .line{
+    width: 4px;
+    height: 5rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .thread-second-box-text {
+    font-size: 3rem;
+    font-weight: 300;
+    color: white;
+    margin-right: 0.3rem;
+  }
+  
+  .menu-icon{
+    color: var(--color-main-heading);
+    font-size: 2rem;
+  }
+  
+  .my-toast{
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .my-toast-col{
+    position: relative;
+    padding-right: 0px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .stat-title-row{
+    margin: 0;
+  }
+
+  .stat-content-row{
+    height: 90%;
+  }
+  
+  .stat-title-col{
+    padding-left: 0;
+  }
+  
+  .stat-icon-col{
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .my-toast-body{
+    background: white;
+    border-radius: 5px;
+  }
+
+  .thread-id-card{
+    background-color: var(--color-sub-heading) !important;
+    color: white !important; 
+    height: 330px !important;
+  }
+
+  .thread-id-main-heading{
+    color: white !important;
+  }
+
+  .thread-id-content-row{
+    overflow-y: hidden;
+  }
+
+  .list-div{
+    height: 260px !important;
+    overflow-y: auto;
+  }
+  
+  .list-div::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  .list-div::-webkit-scrollbar-track {
+    background: whitesmoke;
+  }
+  
+  .list-div::-webkit-scrollbar-thumb {
+    background: #5f5f68;
+  }
+
+
+  .nav-tabs {
+    padding-left: 9px;
+    padding-right: 9px;
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .nav-link.active {
+    color: var(--color-main-heading) !important;
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: var(--color-sub-heading);
+  }
+
+  .nav-link:hover {
+    color: var(--color-main-heading) !important;
+  }
+
+  .tab-content {
+    border: 1px solid #ddd;
+    border-radius: px;
+    height: 290px;
+    padding: 1rem;
+  }
+
+  .code-profiler-second-box .tab-content{
+    height: 355px !important;
+  }
+
+  .prow{
+    height: 250px;
+    overflow-y: scroll;
+  }
+
+   
+  .prow::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  .prow::-webkit-scrollbar-track {
+    background: whitesmoke;
+  }
+  
+  .prow::-webkit-scrollbar-thumb {
+    background: #5f5f68;
+  }
+
+  .t-message{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 1.5rem;
+  }
+
+  .t-message-2{
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 1.4rem;
+  }
+
+  .t-message-3{
+    text-align: center;
+    margin-top: 15%;
+    font-size: 1.5rem;
+  }
+
+  .t-message-4{
+    text-align: center;
+    margin-top: 30%;
+    font-size: 1.5rem;
+  }
+
+  .my-table-div{
+    height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .my-table-div::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  .my-table-div::-webkit-scrollbar-track {
+    background: whitesmoke;
+  }
+  
+  .my-table-div::-webkit-scrollbar-thumb {
+    background: #5f5f68;
+  }
+
+  .my-table-div-2{
+    height: 370px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .my-table-div-2::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  .my-table-div-2::-webkit-scrollbar-track {
+    background: whitesmoke;
+  }
+  
+  .my-table-div-2::-webkit-scrollbar-thumb {
+    background: #5f5f68;
+  }

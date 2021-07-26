@@ -1,0 +1,184 @@
+.main-content {
+  height: 100%;
+  background-color: #EDF2F9;
+  padding: 1rem;
+}
+
+.main-heading{
+  font-weight: 600;
+  color: var(--color-main-heading);
+}
+
+.sub-heading{
+  font-weight: 400;
+  color: var(--color-sub-heading);
+}
+
+.test{
+  height: 400px;
+  width: 50%;
+  background-color: black;
+}
+
+.first-box{
+  background-color: white;
+  border-radius: 5px;
+  height: 300px;
+}
+
+.second-box{
+  background-color: white;
+  border-radius: 5px;
+  height: 150px;
+}
+
+.third-box{
+  background-color: white;
+  border-radius: 5px;
+  height: 330px;
+}
+
+.row {
+  margin-bottom: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.heading{
+  margin-bottom: 0;
+}
+
+.my-bar {
+  fill: #8356fd;
+  /* fill: #413ea0; */
+}
+
+.second-box-first-div {
+  background-image: linear-gradient(#00efca,#02ccfc 60%);
+}
+
+.second-box-second-div {
+  background-image: linear-gradient(#ffcd4d,#f799d1 60%);
+}
+
+.second-box-third-div {
+  background-image: linear-gradient(#41D2FF,#0B55EC 80%);
+}
+
+.second-box-fourth-div {
+  background-image: linear-gradient(#cfc5eb,#8356fd 80%);
+}
+
+
+.second-box .card-title {
+  color: white;
+}
+
+.card{
+  background-color: transparent;
+}
+
+.second-box-inside-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.line{
+  width: 4px;
+  height: 5rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.second-box-text {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  margin-right: 0.3rem;
+}
+
+.arrow-icon-up {
+  font-size: 3rem;
+  color: var(--color-arrow-up);
+  margin-bottom: 1rem;
+}
+
+.arrow-icon-down {
+  font-size: 3rem;
+  color: var(--color-arrow-down);
+  margin-bottom: 1rem;
+}
+
+.second-box-diffrence-text {
+  font-size: 3rem;
+  font-weight: 200;
+  color: white;
+}
+
+.second-box-unit-text {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: white;
+  margin-right: 1rem;
+}
+
+.card-text:last-child {
+  margin-bottom: 1rem;
+}
+
+.list-div{
+  height: 90%;
+  overflow-y: auto;
+}
+
+.list-div::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.list-div::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+.list-div::-webkit-scrollbar-thumb {
+  background: #5f5f68;
+}
+
+.menu-icon{
+  color: var(--color-main-heading);
+  font-size: 2rem;
+}
+
+.my-toast{
+  position: absolute;
+  z-index: 1;
+}
+
+.my-toast-col{
+  position: relative;
+  padding-right: 0px;
+}
+
+.stat-title-row{
+  margin: 0;
+}
+
+.stat-title-col{
+  padding-left: 0;
+}
+
+.stat-icon-col{
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.my-toast-body{
+  background: white;
+  border-radius: 5px;
+}

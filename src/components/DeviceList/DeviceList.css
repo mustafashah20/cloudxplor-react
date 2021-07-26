@@ -1,0 +1,8 @@
+.list-div{
+    height: 340px;
+    overflow-y: auto;
+}
+
+/* ::-webkit-scrollbar{
+    display: none;
+} */

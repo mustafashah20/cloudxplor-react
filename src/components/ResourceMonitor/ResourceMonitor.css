@@ -1,0 +1,183 @@
+.main-content {
+  height: 100%;
+  background-color: #EDF2F9;
+  padding: 1rem;
+}
+  
+.main-heading{
+  font-weight: 600;
+}
+
+.db-second-box-main-heading{
+  font-weight: 600;
+  color: white !important;
+  border-radius: 5px;
+}
+
+.sub-heading{
+  font-weight: 400;
+  color: var(--color-sub-heading);
+}
+
+
+.db-first-box{
+  border-radius: 5px;
+  background-color: white;
+  height: 328px;
+}
+
+.db-third-row{
+  border-radius: 5px;
+  background-color: white;
+  height: 180px;
+}
+
+
+.row {
+  margin-bottom: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.heading{
+  margin-bottom: 0;
+}
+
+.my-bar {
+  fill: #8356fd;
+  /* fill: #413ea0; */
+}
+
+/* .db-card{
+  background-color: white !important;
+} */
+
+.second-box-inside-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.db-line{
+  width: 4px;
+  height: 5rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  background-color: white;
+}
+
+.db-line-1{
+  background-image: linear-gradient(#00efca,#02ccfc 60%) !important;
+}
+
+.db-line-2{
+  background-image: linear-gradient(#ffcd4d,#f799d1 60%) !important;
+}
+
+.db-line-3{
+  background-image: linear-gradient(#cfc5eb,#8356fd 80%) !important;
+  
+}
+
+.db-line-4{
+  background-image: linear-gradient(#41D2FF,#0B55EC 80%) !important;
+}
+
+.db-line-5{
+  background-image: linear-gradient(#00efca,#02ccfc 60%) !important;
+}
+
+.db-line-6{
+  background-image: linear-gradient(#ffcd4d,#f799d1 60%) !important;
+}
+
+.db-line-7{
+  background-image: linear-gradient(#cfc5eb,#8356fd 80%) !important;
+}
+
+.db-line-8{
+  background-image: linear-gradient(#41D2FF,#0B55EC 80%) !important;
+}
+
+.db-second-box-first-div {
+  background-image: none;
+}
+
+.db-second-box-second-div {
+  background-image: none;
+}
+
+.db-second-box-third-div {
+  background-image: none;
+}
+
+.db-second-box-fourth-div {
+  background-image: none;
+}
+
+
+.db-second-box-text {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  margin-right: 0.3rem;
+}
+
+.db-second-box-diffrence-text {
+  font-size: 3rem;
+  font-weight: 200;
+  color: white;
+  margin-right: 1rem;
+}
+
+.db-second-box-unit-text {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: white;
+}
+
+.arrow-icon-up {
+  font-size: 3rem;
+  color: var(--color-arrow-up);
+  margin-bottom: 1rem;
+  margin-left: auto;
+}
+
+.arrow-icon-down {
+  font-size: 3rem;
+  color: var(--color-arrow-down);
+  margin-bottom: 1rem;
+  margin-left: auto;
+}
+
+.card-text:last-child {
+  margin-bottom: 1rem;
+}
+
+.table-container{
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.remove-bottom-margin{
+  margin-bottom: 0px !important;
+}
+
+.host-summary-table{
+  overflow-y: scroll;
+}
+
+.host-summary-table::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.host-summary-table::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+.host-summary-table::-webkit-scrollbar-thumb {
+  background: #5f5f68;
+}
