@@ -141,7 +141,7 @@ class Predictions extends Component {
                         >
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="name" interval={0} />
-                          <YAxis />
+                          <YAxis domain={['auto', 'auto']} />
                           <Tooltip />
                           <Legend />
                           <Line type="monotone" dataKey="active" stroke="#8884d8" activeDot={<CustomizedActiveDot />} dot={<CustomizedDot />} />
@@ -208,7 +208,7 @@ class Predictions extends Component {
                             this.state.apiData.map(
                               el => (el.anomaly === -1) ?
                                 <tr>
-                                  <td>{el.occurance}</td>
+                                  <td>{el.time}</td>
                                   <td>{el.active}</td>
                                   <td>Detected</td>
                                 </tr>
