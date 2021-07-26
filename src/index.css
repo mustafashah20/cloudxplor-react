@@ -27,6 +27,11 @@ html {
     --color-arrow-down: #FE2A67;
 }
 
+.App {
+    background-color: var(--color-background);
+    background: var(--color-background);
+}
+
 .card {
     border-radius: 5px !important;
     
@@ -80,7 +85,6 @@ html {
     background-image: url(images/background.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* background: #2f4ad1c5; */
     height: 800px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

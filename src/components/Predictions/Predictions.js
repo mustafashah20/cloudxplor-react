@@ -96,27 +96,12 @@ class Predictions extends Component {
         })
       }
     })
-    
+
     this.setState({
       isLoading: false,
       numAnomalies: this.state.tempNumAnomalies,
     })
   }
-
-  setCpuShow() {
-    this.setState({
-      cpuShow: !this.state.cpuShow
-    })
-  }
-
-  setMemShow() {
-    this.setState({
-      memShow: !this.state.memShow
-    })
-  }
-
-
-
 
   render() {
     return (
